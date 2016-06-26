@@ -1,9 +1,8 @@
 /**
- * Created by seann on 22/6/2016.
+ * Created by seann on 26/6/2016.
  */
 
 import { Component } from "@angular/core"
-import { bootstrap } from "@angular/platform-browser-dynamic"
 import { TodoItem } from "./todoItem/component"
 
 @Component({
@@ -16,8 +15,6 @@ import { TodoItem } from "./todoItem/component"
                 </div>
                 `
 })
-class TodoApp {
+export class TodoApp {
     public componentName = "Todo App"
 }
-
-bootstrap(TodoApp);
