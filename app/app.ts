@@ -2,28 +2,23 @@
  * Created by seann on 26/6/2016.
  */
 
-import { Component, OnInit } from "@angular/core"
-import { TodoItemService } from "./services/todoItemService"
+import { Component, OnInit } from "@angular/core";
+import { TodoItemService } from "./todoItem.service";
+import { Todo } from "./todo.model";
 
 @Component({
     selector: 'todo-app',
     providers: [TodoItemService],
     templateUrl: "app/app.html"
 })
-export class TodoApp implements OnInit {
-    private todoItemService: TodoItemService;
+export class TodoApp {
+    public newTodo: Todo = new Todo();
+    public todos: Todo[] = [];
 
-    public newTodoItem: string;
+    constructor(private todoItemService: TodoItemService) {}
 
-    public todoItems: Array<string> = [];
-    constructor(todoItemService: TodoItemService) {
-        this.todoItemService = todoItemService;
-    }
-
-    ngOnInit() {
-    }
-
-    public addTodoItem(newTodoItem: string) {
-        this.todoItems.push(newTodoItem);
+    public addTodoItem() {
+        this.todos.push(this.newTodo);
+        this.newTodo = new Todo();
     }
 }
