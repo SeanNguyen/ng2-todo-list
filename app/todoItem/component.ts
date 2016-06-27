@@ -7,7 +7,7 @@ import { TodoItemService } from "./service";
 
 @Component({
     selector: 'todo-item',
-providers: [TodoItemService],
+    providers: [TodoItemService],
     templateUrl:"app/todoItem/template.html",
     styleUrls: ["app/todoItem/style.css"]
 })

@@ -1,23 +1,21 @@
 {
-  "compileOnSave": false,
+  "compileOnSave": true,
   "compilerOptions": {
     "declaration": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "mapRoot": "/",
+//    "mapRoot": "/",
     "module": "commonjs",
     "moduleResolution": "node",
     "noEmitOnError": true,
     "noImplicitAny": false,
-    "outDir": "./dist/",
-    "rootDir": "./app/",
+//    "outDir": "./dist/",
+//    "rootDir": "./app/",
     "sourceMap": true,
     "target": "es5",
     "inlineSources": true
   },
-
-  "files": [
-    "./app/index.ts",
-    "./typings/index.d.ts"
+  "exclude": [
+    "node_modules"
   ]
 }

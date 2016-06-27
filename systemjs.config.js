@@ -5,8 +5,7 @@
 System.config({
     map: {
         '@angular': 'node_modules/@angular',
-        'rxjs': 'node_modules/rxjs',
-        'app': 'dist/'
+        'rxjs': 'node_modules/rxjs'
     },
     packages: {
         // Angular specific barrels.
