@@ -1,16 +1,23 @@
 {
+  "compileOnSave": false,
   "compilerOptions": {
-    "module": "commonjs",
-    "target": "ES5",
-    "experimentalDecorators": true,
-    "sourceMap": true,
-    "moduleResolution": "node",
-    "removeComments": false,
-    "noImplicitAny": true,
+    "declaration": false,
     "emitDecoratorMetadata": true,
-    "suppressImplicitAnyIndexErrors": true
+    "experimentalDecorators": true,
+    "mapRoot": "/",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "noEmitOnError": true,
+    "noImplicitAny": false,
+    "outDir": "./dist/",
+    "rootDir": "./app/",
+    "sourceMap": true,
+    "target": "es5",
+    "inlineSources": true
   },
-  "exclude": [
-    "node_modules"
+
+  "files": [
+    "./app/index.ts",
+    "./typings/index.d.ts"
   ]
 }

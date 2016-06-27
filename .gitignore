@@ -42,3 +42,4 @@ jspm_packages
 #built files
 app/**/*.js
 app/**/*.map
+dist/
