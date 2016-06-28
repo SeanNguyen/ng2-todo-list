@@ -6,6 +6,7 @@ import { Component, OnInit } from "@angular/core";
 import { TodoItemService } from "./todoItem.service";
 import { Todo } from "./todo.model";
 import {TodoComponent} from "./todo/component";
+import _ = require("lodash");
 
 @Component({
     selector: 'todo-app',
@@ -49,11 +50,15 @@ export class TodoApp {
         this.todos.forEach((todo) => {
             if(todo.completed)
                 counter++;
-        })
+        });
         return counter;
     }
 
     public countUncompletedTodo() {
         return this.todos.length - this.countCompletedTodo();
+    }
+
+    public clearCompletedTodo() {
+        _.pullAllBy(this.todos, [{ completed: true }], 'completed');
     }
 }

@@ -1,6 +1,8 @@
 {
   "name": "ng2-todo-list",
-  "dependencies": {},
+  "dependencies": {
+    "lodash": "registry:npm/lodash#4.0.0+20160416211519"
+  },
   "globalDependencies": {
     "core-js": "registry:dt/core-js#0.0.0+20160602141332",
     "node": "registry:dt/node#6.0.0+20160621231320"

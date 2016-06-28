@@ -28,6 +28,6 @@
             </li>
         </ul>
         <!-- Hidden if no completed items are left ↓ -->
-        <button class="clear-completed">Clear completed</button>
+        <button class="clear-completed" [hidden]="countCompletedTodo() === 0" (click)="clearCompletedTodo()">Clear completed</button>
     </footer>
 </section>
