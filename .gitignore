@@ -40,6 +40,6 @@ jspm_packages
 .idea
 
 #built files
-app/**/*.js
-app/**/*.map
+src/app/**/*.js
+src/app/**/*.map
 dist/
