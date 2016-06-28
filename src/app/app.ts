@@ -43,4 +43,17 @@ export class TodoApp {
             todo.completed = toggledState;
         });
     }
+
+    public countCompletedTodo() {
+        var counter: number = 0;
+        this.todos.forEach((todo) => {
+            if(todo.completed)
+                counter++;
+        })
+        return counter;
+    }
+
+    public countUncompletedTodo() {
+        return this.todos.length - this.countCompletedTodo();
+    }
 }
