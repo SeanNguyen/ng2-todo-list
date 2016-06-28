@@ -5,7 +5,7 @@
 export class Todo {
     private _title: string;
     public get title(): string { return this._title }
-    public set title(title: string) { this._title = title.trim() }
+    public set title(title: string) { this._title = title }
 
     private _completed: boolean;
     public get completed(): boolean { return this._completed }

@@ -23,6 +23,7 @@ export class TodoApp {
         if(!this.newTodo.title) {
             return;
         }
+        this.newTodo.title = this.newTodo.title.trim();
         this.todos.push(this.newTodo);
         this.newTodo = new Todo();
     }
