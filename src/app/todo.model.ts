@@ -3,13 +3,13 @@
  */
 
 export class Todo {
-    public title: string;
-    // public get Title(): string { return this.title }
-    // public set Title(title: string) { this.title = title }
+    private _title: string;
+    public get title(): string { return this._title }
+    public set title(title: string) { this._title = title.trim() }
 
-    public completed: boolean;
-    // public get Completed() { return this.completed }
-    // public set Completed(completed: boolean) { this.completed = completed }
+    private _completed: boolean;
+    public get completed(): boolean { return this._completed }
+    public set completed(completed: boolean) { this._completed = completed }
 
     constructor(title?: string, completed?: boolean) {
         this.title = title || '';

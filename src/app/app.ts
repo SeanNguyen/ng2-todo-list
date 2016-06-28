@@ -5,11 +5,13 @@
 import { Component, OnInit } from "@angular/core";
 import { TodoItemService } from "./todoItem.service";
 import { Todo } from "./todo.model";
+import {TodoComponent} from "./todo/component";
 
 @Component({
     selector: 'todo-app',
     providers: [TodoItemService],
-    templateUrl: "app/app.html"
+    templateUrl: "app/app.html",
+    directives: [TodoComponent]
 })
 export class TodoApp {
     public newTodo: Todo = new Todo();
@@ -18,7 +20,26 @@ export class TodoApp {
     constructor(private todoItemService: TodoItemService) {}
 
     public addTodoItem() {
+        if(!this.newTodo.title) {
+            return;
+        }
         this.todos.push(this.newTodo);
         this.newTodo = new Todo();
+    }
+
+    public isAllTodoCompleted() {
+        for(var todo of this.todos) {
+            if(!todo.completed) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public toggleAllTodoStates() {
+        var toggledState: boolean = !this.isAllTodoCompleted();
+        this.todos.forEach((todo)=> {
+            todo.completed = toggledState;
+        });
     }
 }

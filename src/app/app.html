@@ -5,25 +5,10 @@
     </header>
     <!-- This section should be hidden by default and shown when there are todos -->
     <section class="main" [hidden]="todos.length === 0">
-        <input id="toggle-all" class="toggle-all" type="checkbox">
+        <input id="toggle-all" class="toggle-all" type="checkbox" (click)="toggleAllTodoStates()" [class.ative]="isAllTodoCompleted()">
         <label for="toggle-all">Mark all as complete</label>
         <ul class="todo-list">
-            <!--<li class="completed">-->
-                <!--<div class="view">-->
-                    <!--<input class="toggle" type="checkbox" checked>-->
-                    <!--<label>Taste JavaScript</label>-->
-                    <!--<button class="destroy"></button>-->
-                <!--</div>-->
-                <!--<input class="edit" value="Create a TodoMVC template">-->
-            <!--</li>-->
-            <li *ngFor="let todo of todos" [class.completed]="todo.completed">
-                <div class="view">
-                    <input class="toggle" type="checkbox" [(ngModel)]="todo.completed">
-                    <label>{{todo.title}}</label>
-                    <button class="destroy"></button>
-                </div>
-                <input class="edit" value="Rule the web">
-            </li>
+            <sean-todo *ngFor="let todo of todos" [todo]="todo"></sean-todo>
         </ul>
     </section>
     <!-- This footer should hidden by default and shown when there are todos -->
