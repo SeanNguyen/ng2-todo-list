@@ -12,4 +12,14 @@ import {Todo} from "../todo.model";
 })
 export class TodoComponent {
     @Input() todo: Todo;
+
+    public editing: boolean = false;
+
+    public startEditingState() {
+        this.editing = true;
+    }
+
+    public stopEditingState() {
+        this.editing = false;
+    }
 }

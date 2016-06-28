@@ -1,8 +1,8 @@
-<li [class.completed]="todo.completed">
+<li [ngClass]="{ completed: todo.completed, editing: editing }">
     <div class="view">
         <input class="toggle" type="checkbox" [(ngModel)]="todo.completed">
-        <label>{{todo.title}}</label>
+        <label (dblclick)="startEditingState()">{{todo.title}}</label>
         <button class="destroy"></button>
     </div>
-    <input class="edit" value="Rule the web">
+    <input class="edit" [(ngModel)]="todo.title" (blur)="stopEditingState()" (keyup.enter)="stopEditingState()">
 </li>
