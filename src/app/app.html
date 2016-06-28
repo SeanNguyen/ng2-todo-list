@@ -8,7 +8,7 @@
         <input id="toggle-all" class="toggle-all" type="checkbox" (click)="toggleAllTodoStates()" [class.ative]="isAllTodoCompleted()">
         <label for="toggle-all">Mark all as complete</label>
         <ul class="todo-list">
-            <sean-todo *ngFor="let todo of todos" [todo]="todo"></sean-todo>
+            <sean-todo *ngFor="let todo of todos" [todo]="todo" (onDestroy)="removeTodo(todo)"></sean-todo>
         </ul>
     </section>
     <!-- This footer should hidden by default and shown when there are todos -->

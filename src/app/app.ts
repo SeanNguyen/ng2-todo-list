@@ -61,4 +61,8 @@ export class TodoApp {
     public clearCompletedTodo() {
         _.pullAllBy(this.todos, [{ completed: true }], 'completed');
     }
+
+    public removeTodo(todo: Todo) {
+        _.remove(this.todos, todo);
+    }
 }

@@ -2,7 +2,7 @@
  * Created by tronguyen on 28/6/16.
  */
 
-import {Component, Input} from "@angular/core";
+import {Component, Input, Output, EventEmitter} from "@angular/core";
 import construct = Reflect.construct;
 import {Todo} from "../todo.model";
 
@@ -12,6 +12,7 @@ import {Todo} from "../todo.model";
 })
 export class TodoComponent {
     @Input() todo: Todo;
+    @Output() onDestroy: EventEmitter<any> = new EventEmitter();
 
     public editing: boolean = false;
 
@@ -21,5 +22,9 @@ export class TodoComponent {
 
     public stopEditingState() {
         this.editing = false;
+    }
+
+    public destroy() {
+        this.onDestroy.emit(null);
     }
 }
