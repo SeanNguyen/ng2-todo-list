@@ -4,30 +4,28 @@
         <input class="new-todo" placeholder="What needs to be done?" autofocus [(ngModel)]="newTodo.title" (keyup.enter)="addTodoItem()">
     </header>
     <!-- This section should be hidden by default and shown when there are todos -->
-    <section class="main" [hidden]="todos.length === 0">
-        <input id="toggle-all" class="toggle-all" type="checkbox" (click)="toggleAllTodoStates()" [class.ative]="isAllTodoCompleted()">
+    <section class="main" [hidden]="todoService.getTodoItemsSize() === 0">
+        <input id="toggle-all" class="toggle-all" type="checkbox" (click)="todoService.toggleAllTodoStates()" [class.ative]="todoService.isAllTodoCompleted()">
         <label for="toggle-all">Mark all as complete</label>
-        <ul class="todo-list">
-            <sean-todo *ngFor="let todo of todos" [todo]="todo" (onDestroy)="removeTodo(todo)"></sean-todo>
-        </ul>
+        <router-outlet></router-outlet>
     </section>
     <!-- This footer should hidden by default and shown when there are todos -->
-    <footer class="footer" [hidden]="todos.length === 0">
+    <footer class="footer" [hidden]="todoService.getTodoItemsSize() === 0">
         <!-- This should be `0 items left` by default -->
-        <span class="todo-count"><strong>{{countUncompletedTodo()}}</strong> item<span [hidden]="countUncompletedTodo() < 2">s</span> left</span>
+        <span class="todo-count"><strong>{{todoService.countUncompletedTodo()}}</strong> item<span [hidden]="todoService.countUncompletedTodo() < 2">s</span> left</span>
         <!-- Remove this if you don't implement routing -->
         <ul class="filters">
             <li>
-                <a class="selected" href="#/">All</a>
+                <a [ngClass]="{ selected: activatedPath === '' }" [routerLink]="['']">All</a>
             </li>
             <li>
-                <a href="#/active">Active</a>
+                <a [ngClass]="{ selected: activatedPath === 'active' }" [routerLink]="['active']">Active</a>
             </li>
             <li>
-                <a href="#/completed">Completed</a>
+                <a [ngClass]="{ selected: activatedPath === 'completed' }" [routerLink]="['completed']">Completed</a>
             </li>
         </ul>
         <!-- Hidden if no completed items are left ↓ -->
-        <button class="clear-completed" [hidden]="countCompletedTodo() === 0" (click)="clearCompletedTodo()">Clear completed</button>
+        <button class="clear-completed" [hidden]="todoService.countCompletedTodo() === 0" (click)="todoService.clearCompletedTodo()">Clear completed</button>
     </footer>
 </section>

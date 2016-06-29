@@ -7,7 +7,7 @@ import construct = Reflect.construct;
 import {Todo} from "../todo.model";
 
 @Component({
-    selector: 'sean-todo',
+    selector: 'todo',
     templateUrl: "app/todo/template.html"
 })
 export class TodoComponent {
