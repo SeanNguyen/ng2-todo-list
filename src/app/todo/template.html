@@ -1,8 +1,8 @@
 <li [ngClass]="{ completed: todo.completed, editing: editing }">
     <div class="view">
         <input class="toggle" type="checkbox" [(ngModel)]="todo.completed">
-        <label (dblclick)="startEditingState()">{{todo.title}}</label>
+        <label (dblclick)="startEditing(todoTextbox)">{{todo.title}}</label>
         <button class="destroy" (click)="destroy()"></button>
     </div>
-    <input class="edit" [(ngModel)]="todo.title" (blur)="stopEditingState()" (keyup.enter)="stopEditingState()">
+    <input #todoTextbox class="edit" [(ngModel)]="editedTitle" (keyup.enter)="finishEditing()" (blur)="finishEditing()" (keyup.esc)="cancelEditing()">
 </li>

@@ -5,6 +5,7 @@
 import {Component, Input, Output, EventEmitter} from "@angular/core";
 import construct = Reflect.construct;
 import {Todo} from "../todo.model";
+import {Observable} from "rxjs/Rx";
 
 @Component({
     selector: 'todo',
@@ -15,13 +16,33 @@ export class TodoComponent {
     @Output() onDestroy: EventEmitter<any> = new EventEmitter();
 
     public editing: boolean = false;
+    public editedTitle: string = "";
 
-    public startEditingState() {
+    public startEditing(todoTextbox) {
+        if(this.editing)
+            return;
+
         this.editing = true;
+        this.editedTitle = this.todo.title;
+        Observable.timer(0).subscribe(t=> {
+            todoTextbox.focus();
+        });
     }
 
-    public stopEditingState() {
+    public cancelEditing() {
+        if(!this.editing)
+            return;
+
         this.editing = false;
+        this.editedTitle = '';
+    }
+
+    public finishEditing() {
+        if(!this.editing)
+            return;
+
+        this.editing = false;
+        this.todo.title = this.editedTitle;
     }
 
     public destroy() {
