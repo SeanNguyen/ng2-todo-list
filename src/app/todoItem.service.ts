@@ -2,15 +2,15 @@
  * Created by seann on 23/6/2016.
  */
 
-import {Injectable, OnInit} from "@angular/core";
+import {Injectable} from "@angular/core";
 import {Todo} from "./todo.model";
 import _ = require("lodash");
+import {LocalStorage} from "angular2-localstorage/WebStorage";
+import {LocalStorageService} from "angular2-localstorage/LocalStorageEmitter";
 
 @Injectable()
-export class TodoItemService implements OnInit {
-    private todos:Array<Todo> = [];
-
-    public ngOnInit() {}
+export class TodoItemService {
+    @LocalStorage("@angular-todos") private todos: Todo[] = [];
 
     public getTodoItems() {
         return this.todos;

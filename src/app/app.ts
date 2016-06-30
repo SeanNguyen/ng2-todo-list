@@ -9,10 +9,11 @@ import {TodoComponent} from "./todo/component";
 import _ = require("lodash");
 import {ROUTER_DIRECTIVES, ActivatedRoute, Router, NavigationEnd} from "@angular/router";
 import {Subscription} from "rxjs/Rx";
+import {LocalStorageService} from "angular2-localstorage/LocalStorageEmitter";
 
 @Component({
     selector: 'todo-app',
-    providers: [TodoItemService],
+    providers: [TodoItemService, LocalStorageService],
     templateUrl: "app/app.html",
     directives: [TodoComponent, ROUTER_DIRECTIVES]
 })

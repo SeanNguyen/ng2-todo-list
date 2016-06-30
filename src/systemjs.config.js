@@ -6,7 +6,8 @@ System.config({
     map: {
         '@angular': 'vendors/@angular',
         'rxjs': 'vendors/rxjs',
-        'lodash': 'vendors/lodash'
+        'lodash': 'vendors/lodash',
+        'angular2-localstorage': 'vendors/angular2-localstorage'
     },
     packages: {
         // Angular specific barrels.
@@ -21,6 +22,7 @@ System.config({
         // Thirdparty barrels.
         'rxjs': { main: 'index' },
         'lodash': { main: 'index' },
+        "angular2-localstorage": {},
 
         // App specific barrels.
         'app': { main: 'index' }
