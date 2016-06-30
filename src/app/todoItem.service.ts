@@ -12,21 +12,8 @@ export class TodoItemService implements OnInit {
 
     public ngOnInit() {}
 
-    public getTodoItems(filters?: { state: string }) {
-        var returnedTodos: Todo[] = this.todos;
-        if(filters) {
-            switch (filters["state"]) {
-                case "active":
-                    returnedTodos = _.filter(returnedTodos, { completed: false });
-                    break;
-                case  "completed":
-                    returnedTodos = _.filter(returnedTodos, { completed: true });
-                    break;
-                default:
-                    returnedTodos = [];
-            }
-        }
-        return returnedTodos;
+    public getTodoItems() {
+        return this.todos;
     }
 
     public getTodoItemsSize() {
@@ -41,8 +28,12 @@ export class TodoItemService implements OnInit {
         this.todos.push(newTodo);
     }
 
-    public removeTodo(todo: Todo) {
-        _.remove(this.todos, todo);
+    public removeTodo(removedTodo: Todo) {
+        if(!removedTodo)
+            return;
+        _.remove(this.todos, (todo) => {
+            return todo === removedTodo;
+        });
     }
 
     public isAllTodoCompleted() {
