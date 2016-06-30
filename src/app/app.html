@@ -16,13 +16,13 @@
         <!-- Remove this if you don't implement routing -->
         <ul class="filters">
             <li>
-                <a [ngClass]="{ selected: activatedPath === '' }" [routerLink]="['']">All</a>
+                <a [ngClass]="{ selected: activatedPath === '/' }" [routerLink]="['']">All</a>
             </li>
             <li>
-                <a [ngClass]="{ selected: activatedPath === 'active' }" [routerLink]="['active']">Active</a>
+                <a [ngClass]="{ selected: activatedPath === '/active' }" [routerLink]="['active']">Active</a>
             </li>
             <li>
-                <a [ngClass]="{ selected: activatedPath === 'completed' }" [routerLink]="['completed']">Completed</a>
+                <a [ngClass]="{ selected: activatedPath === '/completed' }" [routerLink]="['completed']">Completed</a>
             </li>
         </ul>
         <!-- Hidden if no completed items are left ↓ -->
