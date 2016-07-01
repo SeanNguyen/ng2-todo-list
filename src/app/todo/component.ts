@@ -38,11 +38,11 @@ export class TodoComponent {
     }
 
     public finishEditing() {
-        if(!this.editing)
+        if(!this.editing || !this.editedTitle)
             return;
 
         this.editing = false;
-        this.todo.title = this.editedTitle;
+        this.todo.title = this.editedTitle.trim();
     }
 
     public destroy() {
