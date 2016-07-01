@@ -6,7 +6,6 @@ import {Injectable} from "@angular/core";
 import {Todo} from "./todo.model";
 import _ = require("lodash");
 import {LocalStorage} from "angular2-localstorage/WebStorage";
-import {LocalStorageService} from "angular2-localstorage/LocalStorageEmitter";
 
 @Injectable()
 export class TodoItemService {
